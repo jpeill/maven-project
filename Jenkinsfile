@@ -56,7 +56,7 @@ pipeline {
                     unstash "maven-build"
                 }
                 bat """
-                cd "C:/Users\jpeilleron\Documents"
+                cd C:/Users/jpeilleron/Document
                 jar -xvf /webapp/target/webapp.war
                 """
             }
