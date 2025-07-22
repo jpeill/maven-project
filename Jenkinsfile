@@ -57,7 +57,7 @@ pipeline {
                 }
                 bat """
                 cd C:\\Users\\jpeilleron\\Documents
-                jar -xvf webapp\\target\\webapp.war
+                jar -xvf webapp.war
                 """
             }
         }
