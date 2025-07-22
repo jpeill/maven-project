@@ -48,7 +48,7 @@ pipeline {
                 beforeAgent true}
             agent { label 'built-in'}
             steps{
-                bat "jar -xvf **/target/webapp.war"
+                bat "jar -xvf /webapp/target/webapp.war"
             }
         }
 
