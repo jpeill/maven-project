@@ -37,7 +37,11 @@ pipeline {
             }
             post {
                 success {
-                   archiveArtifacts artifacts: '**/target/*.war'
+                   dir("webapp/target/"){
+                    stash name: "maven-build", includes: "*.war"
+
+                   }
+
                 }
             }
         }
@@ -48,7 +52,13 @@ pipeline {
                 beforeAgent true}
             agent { label 'built-in'}
             steps{
-                bat "jar -xvf /webapp/target/webapp.war"
+                dir("C:/Users/jpeilleron/Documents"){
+                    unstash "maven-build"
+                }
+                bat """
+                cd "C:/Users\jpeilleron\Documents"
+                jar -xvf /webapp/target/webapp.war
+                """
             }
         }
 
